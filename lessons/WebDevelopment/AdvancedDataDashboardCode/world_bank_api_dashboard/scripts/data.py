@@ -7,8 +7,8 @@ import requests
 
 
 # default list of all countries of interest
-country_default = OrderedDict([('Canada', 'CAN'), ('United States', 'USA'), 
-  ('Brazil', 'BRA'), ('France', 'FRA'), ('India', 'IND'), ('Italy', 'ITA'), 
+country_default = OrderedDict([('Canada', 'CAN'), ('United States', 'USA'),
+  ('Brazil', 'BRA'), ('France', 'FRA'), ('India', 'IND'), ('Italy', 'ITA'),
   ('Germany', 'DEU'), ('United Kingdom', 'GBR'), ('China', 'CHN'), ('Japan', 'JPN')])
 
 
@@ -61,8 +61,8 @@ def return_figures(countries=country_default):
       value['country'] = value['country']['value']
 
     data_frames.append(data)
-  
-  # first chart plots arable land from 1990 to 2015 in top 10 economies 
+
+  # first chart plots arable land from 1990 to 2015 in top 10 economies
   # as a line chart
   graph_one = []
   df_one = pd.DataFrame(data_frames[0])
@@ -75,7 +75,7 @@ def return_figures(countries=country_default):
   # this  country list is re-used by all the charts to ensure legends have the same
   # order and color
   countrylist = df_one.country.unique().tolist()
-  
+
   for country in countrylist:
       x_val = df_one[df_one['country'] == country].date.tolist()
       y_val =  df_one[df_one['country'] == country].value.tolist()
@@ -97,7 +97,7 @@ def return_figures(countries=country_default):
   # second chart plots ararble land for 2015 as a bar chart
   graph_two = []
   df_one.sort_values('value', ascending=False, inplace=True)
-  df_one = df_one[df_one['date'] == '2015'] 
+  df_one = df_one[df_one['date'] == '2015']
 
   graph_two.append(
       go.Bar(
@@ -139,7 +139,7 @@ def return_figures(countries=country_default):
   graph_four = []
   df_four_a = pd.DataFrame(data_frames[2])
   df_four_a = df_four_a[['country', 'date', 'value']]
-  
+
   df_four_b = pd.DataFrame(data_frames[3])
   df_four_b = df_four_b[['country', 'date', 'value']]
 
@@ -168,7 +168,7 @@ def return_figures(countries=country_default):
           mode = 'lines+markers',
           text = text,
           name = country,
-          textposition = 'top'
+          textposition = 'top left'
           )
       )
 
