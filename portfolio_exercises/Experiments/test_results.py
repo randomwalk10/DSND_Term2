@@ -19,9 +19,9 @@ def test_results(promotion_strategy):
     irr, nir = score(score_df)
     print("Nice job!  See how well your strategy worked on our test data below!")
     print()
-    print('Your irr with this strategy is {:0.2f}.'.format(irr))
+    print('Your irr with this strategy is {:0.4f}.'.format(irr))
     print()
     print('Your nir with this strategy is {:0.2f}.'.format(nir))
     
-    print("Approximately, the highest scores obtained at Udacity were: irr of {} and an nir of {}.\n\n How did you do?".format(0.1, 300))
+    print("We came up with a model with an irr of {} and an nir of {} on the test set.\n\n How did you do?".format(0.0188, 189.45))
     return irr, nir
